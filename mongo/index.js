@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var db = mongoose.connect('mongodb://localhost/foodDB'); //{DB이름}에는 사용할 DB이름을 적어주시면됩니다
 mongoose.Promise = global.Promise;
-var RestaurantSchema = mongoose.Schema({
+var HosSchema = mongoose.Schema({
   name: {type: String},
   location : {type: String},
   foodname1 : {type: String},
@@ -18,12 +18,9 @@ var RestaurantSchema = mongoose.Schema({
   foodcost6 : {type: Number},
   foodname7 : {type: String},
   foodcost7 : {type: Number},
-  category : {type: String},
-  starsum: {type: Number},
-  count: {type: Number},
   category: {type:String}
 });
 
-Hos = mongoose.model("Hos",RestaurantSchema);
+Hos = mongoose.model("Hos", HosSchema, "Hos");
 exports.Hos = Hos;
 exports.db = db;

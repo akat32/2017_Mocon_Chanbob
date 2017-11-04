@@ -2,10 +2,12 @@
 var app = express();
 var fs = require('fs');
 var bodyParser = require('body-parser');
+
+require('./mongo');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({limit: '1gb', extended: false }));
 
-require('./mongo')
 var ffind = require('./route/find')(express.Router(), Hos);
 app.use('/find',ffind);
 
